@@ -19,24 +19,25 @@ public class GetCustomers implements RequestHandler<ApiGatewayRequest, ApiGatewa
 
 	public ApiGatewayProxyResponse handleRequest(ApiGatewayRequest request, Context context) {
 		LambdaLogger logger = context.getLogger();
+		Map<String, String> headers = new HashMap<String, String>();
+		headers.put("Access-Control-Allow-Origin", "*");
+		headers.put("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
 		try {
 			Map<String, String> queryStringParameters = request.getQueryStringParameters();
 			if (queryStringParameters == null || queryStringParameters.get("page") == null
 					|| queryStringParameters.get("pagesize") == null) {
-				return new ApiGatewayProxyResponse(400, null, null);
+				return new ApiGatewayProxyResponse(400, headers, null);
 			}
 			CustomerQuery customerQuery = agentService.getCustomers(Integer.parseInt(queryStringParameters.get("page")),
 					Integer.parseInt(queryStringParameters.get("pagesize")), queryStringParameters.get("name"),
 					queryStringParameters.get("address"), queryStringParameters.get("phone"));
-			Map<String, String> headers = new HashMap<String, String>();
-			headers.put("Access-Control-Allow-Origin", "*");
 			return new ApiGatewayProxyResponse(200, headers, new Gson().toJson(customerQuery));
 		} catch (NumberFormatException | SQLException e) {
 			logger.log(e.getMessage());
-			return new ApiGatewayProxyResponse(400, null, null);
+			return new ApiGatewayProxyResponse(400, headers, null);
 		} catch (ClassNotFoundException e) {
 			logger.log(e.getMessage());
-			return new ApiGatewayProxyResponse(500, null, null);
+			return new ApiGatewayProxyResponse(500, headers, null);
 		}
 	}
 }

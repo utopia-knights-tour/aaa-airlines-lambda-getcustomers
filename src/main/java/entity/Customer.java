@@ -1,40 +1,40 @@
 package entity;
 
 public class Customer {
-	private Long id;
-	private String name;
-	private String address;
-	private String phone;
+	private Long customerId;
+	private String customerName;
+	private String customerAddress;
+	private String customerPhone;
 
-	public Long getId() {
-		return id;
+	public Long getCustomerId() {
+		return customerId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
 	}
 
-	public String getName() {
-		return name;
+	public String getCustomerName() {
+		return customerName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getCustomerAddress() {
+		return customerAddress;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setCustomerAddress(String customerAddress) {
+		this.customerAddress = customerAddress;
 	}
 
-	public String getPhone() {
-		return phone;
+	public String getCustomerPhone() {
+		return customerPhone;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setCustomerPhone(String customerPhone) {
+		this.customerPhone = customerPhone;
 	}
 }

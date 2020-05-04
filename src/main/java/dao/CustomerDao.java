@@ -71,10 +71,10 @@ public class CustomerDao {
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next()) {
 			Customer customer = new Customer();
-			customer.setId(rs.getLong("customerId"));
-			customer.setName(rs.getString("customerName"));
-			customer.setAddress(rs.getString("customerAddress"));
-			customer.setPhone(rs.getString("customerPhone"));
+			customer.setCustomerId(rs.getLong("customerId"));
+			customer.setCustomerName(rs.getString("customerName"));
+			customer.setCustomerAddress(rs.getString("customerAddress"));
+			customer.setCustomerPhone(rs.getString("customerPhone"));
 			customers.add(customer);
 		}
 		return customers;
