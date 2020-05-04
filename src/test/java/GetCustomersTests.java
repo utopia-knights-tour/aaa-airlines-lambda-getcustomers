@@ -51,8 +51,7 @@ public class GetCustomersTests {
 		Map<String, String> pathParameters = new HashMap<String, String>();
 		pathParameters.put("agencyId", "0");
 		Mockito.when(request.getPathParameters()).thenReturn(pathParameters);
-		ApiGatewayProxyResponse response = (ApiGatewayProxyResponse) new GetCustomers().handleRequest(request,
-				context);
+		ApiGatewayProxyResponse response = (ApiGatewayProxyResponse) new GetCustomers().handleRequest(request, context);
 		assertEquals(404, response.getStatusCode());
 	}
 
