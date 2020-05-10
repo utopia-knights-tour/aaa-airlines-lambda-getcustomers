@@ -21,7 +21,6 @@ public class GetCustomers implements RequestHandler<ApiGatewayRequest, ApiGatewa
 		LambdaLogger logger = context.getLogger();
 		Map<String, String> headers = new HashMap<String, String>();
 		headers.put("Access-Control-Allow-Origin", "*");
-		headers.put("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
 		try {
 			Map<String, String> queryStringParameters = request.getQueryStringParameters();
 			if (queryStringParameters == null || queryStringParameters.get("page") == null
